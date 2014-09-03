@@ -468,22 +468,6 @@ get_hw_addr(const char *name, struct hardware *hw) {
 			hw->hbuf[0] = HTYPE_FDDI;
 			memcpy(&hw->hbuf[1], sa->sa_data, 6);
 			break;
-#if defined(ARPHRD_PPP)
-		case ARPHRD_PPP:
-			if (local_family != AF_INET6)
-				log_fatal("Unsupported device type %d for \"%s\"",
-				           sa->sa_family, name);
-			hw->hlen = 0;
-			hw->hbuf[0] = HTYPE_RESERVED;
-			/* 0xdeadbeef should never occur on the wire,
-			 * and is a signature that something went wrong.
-			 */
-			hw->hbuf[1] = 0xde;
-			hw->hbuf[2] = 0xad;
-			hw->hbuf[3] = 0xbe;
-			hw->hbuf[4] = 0xef;
-			break;
-#endif
 		default:
 			log_fatal("Unsupported device type %ld for \"%s\"",
 				  (long int)sa->sa_family, name);

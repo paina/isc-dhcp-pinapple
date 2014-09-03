@@ -330,6 +330,9 @@ generate_new_server_duid(void) {
 		if (p->hw_address.hlen > 0) {
 			break;
 		}
+		if (p->next == NULL && p->hw_address.hbuf[0] == HTYPE_RESERVED) {
+			log_error("Can not generate DUID from interfaces which do not have hardware addresses, please configure server-duid!");
+		}
 	}
 	if (p == NULL) {
 		return ISC_R_UNEXPECTED;

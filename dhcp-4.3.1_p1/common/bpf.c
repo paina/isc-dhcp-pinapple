@@ -600,6 +600,22 @@ get_hw_addr(const char *name, struct hardware *hw) {
                         memcpy(&hw->hbuf[1], LLADDR(sa), sa->sdl_alen);
                         break;
 #endif /* IFT_FDDI */
+#if defined(IFT_PPP)
+                case IFT_PPP:
+                        if (local_family != AF_INET6)
+                             log_fatal("Unsupported device type %d for \"%s\"",
+                                        sa->sdl_type, name);
+                        hw->hlen = 0;
+                        hw->hbuf[0] = HTYPE_RESERVED;
+                        /* 0xdeadbeef should never occur on the wire,
+                         *  and is a signature that something went wrong.
+                         */
+                        hw->hbuf[1] = 0xde;
+                        hw->hbuf[2] = 0xad;
+                        hw->hbuf[3] = 0xbe;
+                        hw->hbuf[4] = 0xef;
+                        break;
+#endif
                 default:
                         log_fatal("Unsupported device type %d for \"%s\"",
                                   sa->sdl_type, name);

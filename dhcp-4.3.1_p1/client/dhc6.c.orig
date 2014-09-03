@@ -4902,8 +4902,7 @@ make_client6_options(struct client_state *client, struct option_state **op,
 	 */
 	if ((oc = lookup_option(&dhcpv6_universe, *op,
 				D6O_CLIENTID)) == NULL) {
-		if (default_duid.len == 0 ||
-		    !option_cache(&oc, &default_duid, NULL, clientid_option,
+		if (!option_cache(&oc, &default_duid, NULL, clientid_option,
 				  MDL))
 			log_fatal("Failure assembling a DUID.");
 

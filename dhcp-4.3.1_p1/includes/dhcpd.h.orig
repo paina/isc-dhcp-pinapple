@@ -2834,7 +2834,7 @@ void client_dns_remove(struct client_state *client, struct iaddr *addr);
 
 void dhcpv4_client_assignments(void);
 void dhcpv6_client_assignments(void);
-isc_result_t form_duid(struct data_string *duid, const char *file, int line);
+void form_duid(struct data_string *duid, const char *file, int line);
 
 /* dhc6.c */
 void dhc6_lease_destroy(struct dhc6_lease **src, const char *file, int line);

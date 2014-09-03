@@ -81,6 +81,8 @@ struct dhcp_packet {
 					 * is no standard for this so we
 					 * just steal a type            */
 
+#define HTYPE_RESERVED	0		/* RFC 5494 */
+
 /* Magic cookie validating dhcp options field (and bootp vendor
    extensions field). */
 #define DHCP_OPTIONS_COOKIE	"\143\202\123\143"
