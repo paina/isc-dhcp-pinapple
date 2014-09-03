@@ -3,7 +3,14 @@ ISC-DHCP/Pinapple
 
 ISC-DHCP with PPP interfaces support
 
-Contact: SATO Taisuke <paina@wide.ad.jp>
+Contact: SATO Taisuke / <paina@wide.ad.jp>
+
+まだまだでございます
+--------------------
+
+まだ既存のパッチをあてただけなので、過度な期待はしないでください。
+
+とりあえずな！　名前だけはきめてレポジトリ掘るという形から入るのが大事！
 
 License
 -------
@@ -38,3 +45,4 @@ ToDo
 ----
 
 * DUID generation for PPP interface.
+    * If 'default-duid' is not specified and dhclient is run for PPP interface, it not start properly.
