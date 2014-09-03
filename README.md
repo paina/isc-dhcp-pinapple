@@ -41,8 +41,10 @@ ISC-DHCP is originally developed by Internet Systems Consortium. License from th
     See the specific source files for any additional copyright or
     license statements.
 
+Fedora からもらってきたパッチのライセンスはどうなるんだろうとちょっと考え中。
+
 ToDo
 ----
 
 * DUID generation for PPP interface.
-    * If 'default-duid' is not specified and dhclient is run for PPP interface, it not start properly.
+    * If 'default-duid' is not specified and dhclient is run for PPP interface, it does not start properly.
